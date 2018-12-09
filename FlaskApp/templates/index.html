@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Food-Fitness</title>
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,400">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/font-awesome.min.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/hero-slider-style.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.min.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/templatemo-style.css') }}">
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+        <!--[if lt IE 9]>
+          <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+          <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+          <![endif]-->
+</head>
+
+    <body>
+        <section class="cd-hero">
+            <ul class="cd-hero-slider autoplay">  
+            <!-- 
+                <ul class="cd-hero-slider autoplay"> for slider auto play 
+                <ul class="cd-hero-slider"> for disabled auto play
+            -->
+                <li class="selected">
+                    <div class="cd-full-width">
+                        <div class="tm-slide-content-div">
+                            <form action="/index"  method="post">
+                                <i class="fa fa-cogs tm-slide-icon"></i>
+                                <h2 class="text-uppercase">Food-Fitness</h2>
+                                <p class="m-b-mid">Enter the details </p>
+                                <div class="form-group">
+                                <input type="text" class="form-control center-block tm-max-w-400" id="search_box" name="search_food"  placeholder="Enter the food item" value="{{request.form.username}}">
+                                    <br>
+                                    <input type="text" class="form-control center-block tm-max-w-400" id="pincode_box" name="search_pincode" placeholder="Enter the Location ">
+                              </div>                                
+                                <button type="submit" class="cd-btn">Submit</button>
+                                
+                            </form>                            
+                        </div>                        
+                    </div> <!-- .cd-full-width -->
+                </li>
+            </ul> <!-- .cd-hero-slider -->
+ 
+        </section> <!-- .cd-hero -->
+
+
+
+        <!-- <link rel="stylesheet" href="{{ url_for('static', filename='css/font-awesome.min.css') }}"> -->
+        <!-- load JS files -->
+        <script src="{{ url_for('static', filename='js/jquery-1.11.3.min.js')}}"></script>             <!-- jQuery (https://jquery.com/download/) -->
+        <script src="https://www.atlasestateagents.co.uk/javascript/tether.min.js"></script> <!-- Tether for Bootstrap (http://stackoverflow.com/questions/34567939/how-to-fix-the-error-error-bootstrap-tooltips-require-tether-http-github-h) --> 
+        <script src="{{ url_for('static', filename='js/bootstrap.min.js')}}"></script>                 <!-- Bootstrap js (v4-alpha.getbootstrap.com/) -->
+        <script src="{{ url_for('static', filename='js/hero-slider-script.js')}}"></script>            <!-- Hero slider (https://codyhouse.co/gem/hero-slider/) -->
+        <script src="{{ url_for('static', filename='js/jquery.touchSwipe.min.js')}}"></script>         <!-- http://labs.rampinteractive.co.uk/touchSwipe/demos/ -->
+        <script>     
+       
+            $(document).ready(function(){
+
+                /* Auto play bootstrap carousel 
+                * http://stackoverflow.com/questions/13525258/twitter-bootstrap-carousel-autoplay-on-load
+                -----------------------------------------------------------------------------------------*/                
+                $('.carousel').carousel({
+                  interval: 3000
+                })
+
+                /* Enable swiping carousel for tablets and mobile
+                 * http://lazcreative.com/blog/adding-swipe-support-to-bootstrap-carousel-3-0/
+                 ---------------------------------------------------------------------------------*/
+                if($(window).width() <= 991) {
+                    $(".carousel-inner").swipe( {
+                        //Generic swipe handler for all directions
+                        swipeLeft:function(event, direction, distance, duration, fingerCount) {
+                            $(this).parent().carousel('next'); 
+                        },
+                        swipeRight: function() {
+                            $(this).parent().carousel('prev'); 
+                        },
+                        //Default is 75px, set to 0 for demo so any distance triggers swipe
+                        threshold:0
+                    });
+                }  
+
+                /* Handle window resize */
+                $(window).resize(function(){
+                    if($(window).width() <= 991) {
+                        $(".carousel-inner").swipe( {
+                            //Generic swipe handler for all directions
+                            swipeLeft:function(event, direction, distance, duration, fingerCount) {
+                                $(this).parent().carousel('next'); 
+                            },
+                            swipeRight: function() {
+                                $(this).parent().carousel('prev'); 
+                            },
+                            //Default is 75px, set to 0 for demo so any distance triggers swipe
+                            threshold:0
+                        });
+                     }
+                });                             
+            });
+
+        </script>             
+
+</body>
+</html>

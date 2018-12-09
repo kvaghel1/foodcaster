@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html style="background-color:black">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<!--
+
+Template 2093 Flight
+
+http://www.tooplate.com/view/2093-flight
+
+-->
+    	<title>Food-Fitness</title>
+    
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <!-- <link rel="stylesheet" href="{{ url_for('static', filename='css/font-awesome.min.css') }}"> -->
+
+        <link rel="apple-touch-icon" href="{{ url_for('static', filename='img/apple-touch-icon.png') }}">
+
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.min.css') }}">
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap-theme.min.css') }}">
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/fontAwesome.css') }}">
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/hero-slider.css') }}">
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/owl-carousel.css') }}">
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/datepicker.css') }}">
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/tooplate-style.css') }}">
+
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800" rel="stylesheet">
+
+        <script src="{{ url_for('static', filename='js/vendor/modernizr-2.8.3-respond-1.4.2.min.js') }}"></script>
+    </head>
+
+<body>
+
+    <div class="tabs-content" id="weather" style="background-color:black">
+        <div class="container">
+            <div class="row">
+                <div class="wrapper">
+                    <div class="col-md-12">
+                        <div class="weather-content">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <ul class="tabs clearfix" data-tabgroup="second-tab-group">
+                                        <li><a href="#monday" class="active">Results</a></li>
+                                    </ul>    
+                                </div>
+                                <div class="col-md-12">
+                                    <section id="second-tab-group" class="weathergroup">
+                                        <div id="monday">
+                                            <div class="row">
+                                                <div class="col-md-4">
+                                                    <div class="weather-item">
+                                                        <h6>{{temp}}</h6>
+                                                        <div class="weather-icon">
+                                                        <!-- <img src="{{ url_for('static', filename = 'img/weather-icon-01.png')}}" alt=""> -->
+                                                        <img src="{{ url_for('static', filename = 'img/weather-icon-0'+ (icon_no) + '.png')}}" alt="">
+                                                        </div>
+                                                        <span>{{current_condition}}: {{current_temperature}}&deg;F</span>
+                                                        <ul class="time-weather">
+                                                            <li>{{weather_forecast[0][0]}} <span>{{weather_forecast[0][1]}}&deg;F / {{weather_forecast[0][2]}}&deg;F</span></li>
+                                                            
+                                                            <li>{{weather_forecast[1][0]}} <span>{{weather_forecast[1][1]}}&deg;F / {{weather_forecast[1][2]}}&deg;F</span></li>
+                                                            
+                                                            <li>{{weather_forecast[2][0]}} <span>{{weather_forecast[2][1]}}&deg;F / {{weather_forecast[2][2]}}&deg;F</span></li>
+                                                            
+                                                            <li>{{weather_forecast[3][0]}} <span>{{weather_forecast[3][1]}}&deg;F / {{weather_forecast[3][2]}}&deg;F</span></li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-4">
+                                                    <div class="weather-item">
+                                                        <h6>{{detail_item[0]}}</h6>
+                                                        <div class="weather-icon">
+                                                            <!-- <img src="img/weather-icon-02.png" alt=""> -->
+                                                            <h6> Serving Size: </h6>
+                                                            <h6> {{weight}} </h6>
+                                                        </div>
+                                                        <span>Total Calories: {{calories}}</span>
+                                                        <ul class="time-weather">
+                                                            <li>Fat <span>{{detail_item[4]}}</span></li>
+                                                            <li>Carbohydrate <span>{{detail_item[2]}}</span></li>
+                                                            <li>Protein <span>{{detail_item[3]}}</span></li>
+                                                            <li>Sugar <span>{{detail_item[5]}}</span></li>
+                                                            <li>Cholestrol <span>{{detail_item[1]}}</span></li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-4">
+                                                    <div class="weather-item">
+                                                        <h6>Duration of Workout to burn the gained Calories ?</h6>
+                                                        <div class="weather-icon">
+                                                            <!-- <img src="img/weather-icon-01.png" alt=""> -->
+                                                            <h6></h6>
+                                                            <h6></h6>
+                                                        </div>
+                                                        <span>(Minutes)</span>
+                                                        <ul class="time-weather">
+                                                            <li>Walking <span>{{list_time[0]}} m</span></li>
+                                                            <li>Running <span>{{list_time[1]}} m</span></li>
+                                                            <li>Cycling <span>{{list_time[2]}} m</span></li>
+                                                            
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                       
+                                    </section>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+<!--     <script>window.jQuery || document.write('<script src="{{ url_for('static', filename='js/vendor/jquery-1.11.2.min.js') }}"><\/script>')</script> -->
+
+    <script src="{{ url_for('static', filename='js/vendor/bootstrap.min.js') }}"></script>
+    
+    <script src="{{ url_for('static', filename='js/datepicker.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/plugins.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js" type="text/javascript"></script>
+    <script type="text/javascript">
+    $(document).ready(function() {
+
+        
+
+        // navigation click actions 
+        $('.scroll-link').on('click', function(event){
+            event.preventDefault();
+            var sectionID = $(this).attr("data-id");
+            scrollToID('#' + sectionID, 750);
+        });
+        // scroll to top action
+        $('.scroll-top').on('click', function(event) {
+            event.preventDefault();
+            $('html, body').animate({scrollTop:0}, 'slow');         
+        });
+        // mobile nav toggle
+        $('#nav-toggle').on('click', function (event) {
+            event.preventDefault();
+            $('#main-nav').toggleClass("open");
+        });
+    });
+    // scroll function
+    function scrollToID(id, speed){
+        var offSet = 0;
+        var targetOffset = $(id).offset().top - offSet;
+        var mainNav = $('#main-nav');
+        $('html,body').animate({scrollTop:targetOffset}, speed);
+        if (mainNav.hasClass("open")) {
+            mainNav.css("height", "1px").removeClass("in").addClass("collapse");
+            mainNav.removeClass("open");
+        }
+    }
+    if (typeof console === "undefined") {
+        console = {
+            log: function() { }
+        };
+    }
+    </script>
+</body>
+</html>
